@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Converter View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ConverterViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kdc-0S-FWE">
+                                <rect key="frame" x="0.0" y="288.5" width="375" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-AM-5aI">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="90"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fS0-9A-Xqp">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="37.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="textFieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="OD2-Xg-tbZ"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2Uv-9s-Tog"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Sz-ZR-eak">
+                                                <rect key="frame" x="0.0" y="52.5" width="187.5" height="37.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="textFieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="1WN-Cq-fH3"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CPm-ww-MQm"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="U3G-Pr-bOu">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVM-UM-N9v">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="45"/>
+                                                <state key="normal" title="INR"/>
+                                                <connections>
+                                                    <action selector="fromAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n7B-Zn-ZAs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltd-nv-Oy3">
+                                                <rect key="frame" x="0.0" y="45" width="187.5" height="45"/>
+                                                <state key="normal" title="USD"/>
+                                                <connections>
+                                                    <action selector="toAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cws-ib-SBl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="t5L-Bc-U4r"/>
+                                </constraints>
+                            </stackView>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpv-fc-VIL">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="GFC-9Y-fNN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="86u-dI-cmp"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bpv-fc-VIL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0YD-eT-3Yh"/>
+                            <constraint firstItem="kdc-0S-FWE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2hb-it-0aL"/>
+                            <constraint firstItem="kdc-0S-FWE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pcj-G4-Jxf"/>
+                            <constraint firstItem="bpv-fc-VIL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="b9P-Du-zIv"/>
+                            <constraint firstItem="kdc-0S-FWE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nxz-s9-BXF"/>
+                            <constraint firstItem="bpv-fc-VIL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ub4-b7-4a6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="fromCurrency" destination="nVM-UM-N9v" id="wgJ-6X-EIu"/>
+                        <outlet property="fromField" destination="fS0-9A-Xqp" id="kwX-dt-nsu"/>
+                        <outlet property="pickerView" destination="bpv-fc-VIL" id="olk-oS-ej5"/>
+                        <outlet property="toCurrency" destination="ltd-nv-Oy3" id="wfM-Dv-mO1"/>
+                        <outlet property="toField" destination="2Sz-ZR-eak" id="MDi-KW-6ge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
